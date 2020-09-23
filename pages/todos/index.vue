@@ -1,4 +1,5 @@
 <template>
+<transition name="todos">
     <section>
         <div class="columns">
             <div class="column is-full has-text-centered">
@@ -28,6 +29,7 @@
             </div>
         </div>
     </section>
+</transition>
 </template>
 
 <script>
@@ -36,6 +38,13 @@ import { mapMutations } from 'vuex';
 export default {
     computed: {
         todos() { return this.$store.state.todos.list }
+    },
+    transition: {
+        name: 'todos',
+        beforeLeave: function(el) {
+            // set page class to parent element
+            el.parentNode.classList.add('todos');
+        },
     },
     methods: {
         removeTodo(todo) {
@@ -56,5 +65,15 @@ export default {
 .done {
     text-decoration: line-through;
 }
-</style>
 
+.todos-enter { /* ToDoリスト（todos）→メイン（main）：ToDoリスト移動開始位置 */
+    transform: translate(100vw, 0);
+}
+.todos .main-leave-to { /* ToDoリスト（todos）←メイン（main）：メイン移動終了位置 */
+    transform: translate(100vw, 0);
+}
+.todos-enter-active,
+.main-leave-active {
+    transition: all .5s 0s ease;
+}
+</style>

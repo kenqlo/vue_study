@@ -1,4 +1,5 @@
 <template>
+<transition name="main">
     <section class="container">
         <div>
             <app-logo/>
@@ -16,6 +17,7 @@
             </div>
         </div>
     </section>
+</transition>
 </template>
 
 <script>
@@ -24,6 +26,22 @@ import AppLogo from '~/components/AppLogo.vue'
 export default {
     components: {
         AppLogo
+    },
+    methods: {
+        beforeLeave: function(el) {
+            console.log('method beforeLeave');
+        }
+    },
+    transition: {
+        name: 'main',
+        beforeEnter: function(el) {
+            // set page class to parent element
+            this.$parent.$el.classList.add('main');
+        },
+        afterEnter: function(el) {
+            // remove all page classes
+            this.$parent.$el.classList.remove('main', 'users', 'todos');
+        },
     }
 }
 </script>
@@ -56,5 +74,23 @@ export default {
 
 .links {
     padding-top: 15px;
+}
+
+.users .main-enter { /* カウンター（users）→メイン（main）：メイン移動開始位置 */
+    transform: translate(100vw, 0);
+}
+.users-leave-to { /* カウンター（users）←メイン（main）：カウンター移動終了位置 */
+    transform: translate(100vw, 0);
+}
+.todos .main-enter { /* メイン（main）→ToDoリスト（todos）：メイン移動開始位置 */
+    transform: translate(-100vw, 0);
+}
+.todos-leave-to { /* メイン（main）←ToDoリスト（todos）：ToDoリスト移動終了位置 */
+    transform: translate(-100vw, 0);
+}
+.main-enter-active,
+.users-leave-active,
+.todos-leave-active {
+    transition: all .5s 0s ease;
 }
 </style>

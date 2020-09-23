@@ -1,4 +1,5 @@
 <template>
+<transition name="users">
     <section>
         <div class="columns">
             <div class="column has-text-centered">
@@ -19,12 +20,20 @@
             </div>
         </div>
     </section>
+</transition>
 </template>
 
 <script>
 export default {
     computed: {
         count() { return this.$store.state.counter.count }
+    },
+    transition: {
+        name: 'users',
+        beforeLeave: function(el) {
+            // set page class to parent element
+            el.parentNode.classList.add('users');
+        },
     },
     methods: {
         addCount(e) {
@@ -36,3 +45,16 @@ export default {
     }
 }
 </script>
+
+<style>
+.users-enter { /* カウンター（users）→メイン（main）：カウンター移動開始位置 */
+    transform: translate(-100vw, 0);
+}
+.users .main-leave-to { /* カウンター（users）←メイン（main）：メイン移動終了位置 */
+    transform: translate(-100vw, 0);
+}
+.users-enter-active,
+.main-leave-active {
+    transition: all .5s 0s ease;
+}
+</style>

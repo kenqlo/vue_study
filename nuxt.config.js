@@ -14,6 +14,7 @@ module.exports = {
     ]
   },
   buildModules: [
+    '@nuxt/typescript-build'
   ],
   /*
   ** Customize the progress bar color
@@ -56,4 +57,3 @@ module.exports = {
     ]
   }
 }
-

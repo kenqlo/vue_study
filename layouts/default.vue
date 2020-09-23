@@ -1,13 +1,15 @@
 <template>
     <div class="wrapper-body">
-        <section class="hero is-primary">
+        <!-- <section class="hero is-primary">
             <div class="hero-body">
                 <div class="container">
                     <h1 class="title has-text-centered">NUXT JS<font-awesome-icon icon="coffee" />kenqlo</h1>
                 </div>
             </div>
-        </section>
-        <nuxt class="section" />
+        </section> -->
+        <!-- <transition> -->
+            <nuxt id="transition-page" class="section" />
+        <!-- </transition> -->
         <footer class="footer">
             <div class="content has-text-centered">
                 <p>&copy; 2020 kenqlo</p>
