@@ -2,6 +2,10 @@
 
 > Nuxt.js project
 
+## Requirements
+
+- [Node.js](https://nodejs.org/en/download/releases/) >= 16.13
+
 ## Build Setup
 
 ``` bash
