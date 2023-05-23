@@ -13,10 +13,14 @@
         </div>
         <div class="columns">
             <div class="column has-text-centered">
-                <button class="button" @click="$router.push('/')">
-                    <font-awesome-icon icon="chevron-circle-left" />
+                <!-- <button class="button" @click="$router.push('/')">
                     <span>前のページに戻る</span>
-                </button>
+                    <font-awesome-icon icon="chevron-circle-right" />
+                </button> -->
+                <nuxt-link class="button--grey" to="/">
+                    <span>前のページに戻る</span>
+                    <font-awesome-icon icon="chevron-circle-right" />
+                </nuxt-link>
             </div>
         </div>
     </section>

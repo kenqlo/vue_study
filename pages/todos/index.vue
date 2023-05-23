@@ -22,10 +22,14 @@
         </div>
         <div class="columns">
             <div class="column is-full has-text-centered">
-                <button class="button" @click="$router.push('/')">
+                <!-- <button class="button" @click="$router.push('/')">
                     <font-awesome-icon icon="chevron-circle-left" />
                     <span>前のページに戻る</span>
-                </button>
+                </button> -->
+                <nuxt-link class="button--grey" to="/">
+                    <font-awesome-icon icon="chevron-circle-left" />
+                    <span>前のページに戻る</span>
+                </nuxt-link>
             </div>
         </div>
     </section>

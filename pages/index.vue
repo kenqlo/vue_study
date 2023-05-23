@@ -7,8 +7,8 @@
             <h2 class="subtitle">Nuxt.js project</h2>
             <div class="pages">
                 <nuxt-link to="/users" class="button--green">
+                    <font-awesome-icon icon="chevron-circle-left" />
                     <span>カウンター</span>
-                    <font-awesome-icon icon="chevron-circle-right" />
                 </nuxt-link>
                 <nuxt-link to="/todos" class="button--grey">
                     <span>ToDoリスト</span>
